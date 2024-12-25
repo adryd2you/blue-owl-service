@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS test_logs CASCADE;
+
+CREATE TABLE test_logs (
+  id SERIAL PRIMARY KEY,
+  api_example_id INT NOT NULL,
+  test_executed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  is_success BOOLEAN DEFAULT FALSE,
+  FOREIGN KEY (api_example_id) REFERENCES api_examples(id) ON DELETE CASCADE
+);
